@@ -1,0 +1,25 @@
+{
+    "name": "digitalshift/mailbox-form-bundle",
+    "type": "symfony-bundle",
+    "description": "A Symfony2 Bundle providing form-types for DigitalshiftMailboxAbstractionBundle.",
+    "keywords": ["mail", "form", "DigitalshiftMailboxAbstractionBundle"],
+    "homepage": "https://github.com/soeren-helbig/DigitalshiftMailboxFormBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Soeren Helbig",
+            "email": "soeren.helbig@digitalshift.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "digitalshift/mailbox-abstraction-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Digitalshift\\MailboxFormBundle": ""
+        }
+    },
+    "target-dir": "Digitalshift/MailboxFormBundle"
+}
