@@ -1,0 +1,7 @@
+parameters:
+#    digitalshift_mailbox_form.example.class: Digitalshift\MailboxFormBundle\Example
+
+services:
+#    digitalshift_mailbox_form.example:
+#        class: %digitalshift_mailbox_form.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
