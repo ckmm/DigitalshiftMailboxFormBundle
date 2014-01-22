@@ -1,7 +1,14 @@
 parameters:
-#    digitalshift_mailbox_form.example.class: Digitalshift\MailboxFormBundle\Example
+    form.type.digitalshift_mailbox_message.class: Digitalshift\MailboxFormBundle\Form\Type\MessageType
+    form.type.digitalshift_mailbox_message_content.class: Digitalshift\MailboxFormBundle\Form\Type\MessageContentType
 
 services:
-#    digitalshift_mailbox_form.example:
-#        class: %digitalshift_mailbox_form.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    form.type.digitalshift_mailbox_message:
+        class: %form.type.digitalshift_mailbox_message.class%
+        tags:
+            -  { name: form.type, alias: digitalshift_mailbox_message }
+
+    form.type.digitalshift_mailbox_message_content:
+            class: %form.type.digitalshift_mailbox_message_content.class%
+            tags:
+                -  { name: form.type, alias: digitalshift_mailbox_message_content }
