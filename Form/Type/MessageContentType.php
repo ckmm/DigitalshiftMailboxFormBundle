@@ -3,6 +3,7 @@
 namespace Digitalshift\MailboxFormBundle\Form\Type;
 
 use Digitalshift\MailboxFormBundle\Form\DataTransformer\MimePartCollectionToArrayTransformer;
+use Digitalshift\MailboxPersistenceBundle\Persistence\Attachment\PersistenceInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -15,6 +16,19 @@ use Symfony\Component\Form\FormBuilderInterface;
 class MessageContentType extends AbstractType
 {
     /**
+     * @var PersistenceInterface
+     */
+    private $attachmentPersister;
+
+    /**
+     * @param PersistenceInterface $attachmentPersister
+     */
+    public function __construct(PersistenceInterface $attachmentPersister)
+    {
+        $this->attachmentPersister = $attachmentPersister;
+    }
+
+    /**
      * @{inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -22,18 +36,18 @@ class MessageContentType extends AbstractType
         $builder
             ->add('contentPlain', 'textarea')
             ->add('contentHtml', 'textarea')
-            ->add('attachmentsEmbeded', 'collection', array(
-                'type' => 'text',
+            ->add('attachmentsEmbedded', 'collection', array(
+                'type' => 'hidden',
                 'allow_add' => true,
                 'allow_delete' => true
             ))
             ->add('attachmentsExtended', 'collection', array(
-                'type' => 'file',
+                'type' => 'text',
                 'allow_add' => true,
                 'allow_delete' => true
             ));
 
-        $transformer = new MimePartCollectionToArrayTransformer();
+        $transformer = new MimePartCollectionToArrayTransformer($this->attachmentPersister);
         $builder->addModelTransformer($transformer);
     }
 

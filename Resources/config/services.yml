@@ -10,5 +10,6 @@ services:
 
     form.type.digitalshift_mailbox_message_content:
             class: %form.type.digitalshift_mailbox_message_content.class%
+            arguments: [@digitalshift_mailbox_persistence.attachment_persister]
             tags:
                 -  { name: form.type, alias: digitalshift_mailbox_message_content }
