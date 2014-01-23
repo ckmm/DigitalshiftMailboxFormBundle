@@ -14,8 +14,8 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "digitalshift/mailbox-abstraction-bundle": "0.1.*@dev",
-        "digitalshift/mailbox-persistence-bundle": "0.1.*@dev",
+        "digitalshift/mailbox-abstraction-bundle": "0.1.x-dev",
+        "digitalshift/mailbox-persistence-bundle": "0.1.x-dev",
         "trsteel/ckeditor-bundle": "1.4.*"
     },
     "autoload": {
