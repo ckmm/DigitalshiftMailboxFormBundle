@@ -89,7 +89,6 @@ class MimePartCollectionToArrayTransformer implements DataTransformerInterface
         foreach ($attachments as $attachment) {
             $cid = $attachment->getHeader('content-id');
             $html = str_replace('cid:'.$cid, $attachment->getPath(), $html);
-//            $html = preg_replace('/cid\:/g', $attachment->getPath(), $html);
         }
 
         return $html;
@@ -112,11 +111,11 @@ class MimePartCollectionToArrayTransformer implements DataTransformerInterface
     }
 
     /**
-     * Transforms a string (number) to an object (issue).
+     * Transforms a array to an MessageMimePartCollection.
      *
-     * @param string $content
+     * @param array $content
      *
-     * @return Message|null
+     * @return MessageMimePartCollection|null
      *
      * @throws TransformationFailedException if object (issue) is not found.
      */
@@ -126,6 +125,6 @@ class MimePartCollectionToArrayTransformer implements DataTransformerInterface
             return null;
         }
 
-        return new Message(new MessageHeaders(), new MessageMimePartCollection(), 'INBOX', 1);;
+        return new MessageMimePartCollection(new MessageHeaders(), new MessageMimePartCollection(), 'INBOX', 1);;
     }
 } 
