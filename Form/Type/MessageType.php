@@ -14,6 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class MessageType extends AbstractType
 {
+    const TYPE_NAME = 'digitalshift_mailbox_message';
     const DATA_CLASS = 'Digitalshift\MailboxAbstractionBundle\Entity\Message';
 
     /**
@@ -43,6 +44,6 @@ class MessageType extends AbstractType
      */
     public function getName()
     {
-        return 'digitalshift_mailbox_message';
+        return self::TYPE_NAME;
     }
 } 

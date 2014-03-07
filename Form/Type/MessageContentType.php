@@ -35,7 +35,7 @@ class MessageContentType extends AbstractType
     {
         $builder
             ->add('contentPlain', 'textarea')
-            ->add('contentHtml', 'textarea')
+            ->add('contentHtml', 'ckeditor')
             ->add('attachmentsEmbedded', 'collection', array(
                 'type' => 'hidden',
                 'allow_add' => true,
